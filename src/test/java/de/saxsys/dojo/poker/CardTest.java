@@ -34,7 +34,7 @@ public class CardTest {
 	@Test
 	public void isRankedOneHigher() throws Exception {
 		assertThat(new Card("Ah").isRankedOneHigher(new Card("Kd")), is(true));
-		assertThat(new Card("Ah").isRankedOneHigher(new Card("Dd")), is(false));
-		assertThat(new Card("Dh").isRankedOneHigher(new Card("Dd")), is(false));
+		assertThat(new Card("Ah").isRankedOneHigher(new Card("Qd")), is(false));
+		assertThat(new Card("Qh").isRankedOneHigher(new Card("Qd")), is(false));
 	}
 }

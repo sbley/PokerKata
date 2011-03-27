@@ -28,7 +28,13 @@ public class PokerGame {
 
 	private boolean isStraight() {
 		sortCards();
-		return false;
+		for (int cardIndex = 1; cardIndex < cards.size(); cardIndex++) {
+			if (!cards.get(cardIndex).isRankedOneHigher(
+					cards.get(cardIndex - 1))) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private boolean isFlush() {

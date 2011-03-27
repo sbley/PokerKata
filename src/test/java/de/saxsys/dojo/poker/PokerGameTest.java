@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PokerGameTest {
@@ -38,10 +37,9 @@ public class PokerGameTest {
 	}
 
 	@Test
-	@Ignore
 	public void getScore_straight() throws Exception {
 		PokerGame pokerGame = new PokerGame(new String[] { "Ks", "0h", "9d",
-				"Jh", "Dc" });
+				"Jh", "Qc" });
 		assertThat(pokerGame.getScore(), is(equalTo("straight")));
 	}
 }
