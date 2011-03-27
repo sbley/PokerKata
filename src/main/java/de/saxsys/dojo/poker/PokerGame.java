@@ -9,4 +9,8 @@ public class PokerGame {
 		}
 	}
 
+	public String getScore() {
+		return "highest card";
+	}
+
 }

@@ -1,5 +1,9 @@
 package de.saxsys.dojo.poker;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 public class PokerGameTest {
@@ -16,5 +20,13 @@ public class PokerGameTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void init_throwsExceptionIfHandHasMoreThen5Cards() throws Exception {
 		new PokerGame(new String[] { "Kh", "0s", "3c", "3d", "4h", "Ah" });
+	}
+
+	@Test
+	public void getScore_highestCard() throws Exception {
+		assertThat(
+				new PokerGame(new String[] { "2h", "5h", "3h", "0h", "Kh" })
+						.getScore(),
+				is(equalTo("highest card")));
 	}
 }
