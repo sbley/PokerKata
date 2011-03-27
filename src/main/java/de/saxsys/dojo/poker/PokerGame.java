@@ -33,11 +33,18 @@ public class PokerGame {
 		if (straight) {
 			return "straight";
 		}
+		if (isThreeOfAKind()) {
+			return "three of a kind";
+		}
 		return "highest card";
 	}
 
 	private boolean isFourOfAKind() {
 		return valueCounts().containsValue(4);
+	}
+
+	private boolean isThreeOfAKind() {
+		return valueCounts().containsValue(3);
 	}
 
 	private Map<Character, Integer> valueCounts() {
