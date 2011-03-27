@@ -30,4 +30,11 @@ public class CardTest {
 		assertThat(Card.byValue().compare(new Card("7d"), new Card("7s")),
 				is(equalTo(0)));
 	}
+
+	@Test
+	public void isRankedOneHigher() throws Exception {
+		assertThat(new Card("Ah").isRankedOneHigher(new Card("Kd")), is(true));
+		assertThat(new Card("Ah").isRankedOneHigher(new Card("Dd")), is(false));
+		assertThat(new Card("Dh").isRankedOneHigher(new Card("Dd")), is(false));
+	}
 }

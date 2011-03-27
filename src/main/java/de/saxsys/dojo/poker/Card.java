@@ -37,4 +37,8 @@ public class Card {
 		}
 		return -1;
 	}
+
+	public boolean isRankedOneHigher(Card card) {
+		return 1 == rank() - card.rank();
+	}
 }
