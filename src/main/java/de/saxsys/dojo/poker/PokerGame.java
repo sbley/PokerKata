@@ -42,6 +42,9 @@ public class PokerGame {
 		if (isTwoPairs()) {
 			return "two pairs";
 		}
+		if (isOnePair()) {
+			return "one pair";
+		}
 		return "highest card";
 	}
 
@@ -58,6 +61,16 @@ public class PokerGame {
 	}
 
 	private boolean isTwoPairs() {
+		int pairs = 0;
+		for (Integer value : valueCounts().values()) {
+			if (2 == value && ++pairs == 2) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean isOnePair() {
 		return valueCounts().containsValue(2);
 	}
 
