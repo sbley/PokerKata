@@ -9,6 +9,11 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class CardTest {
+	@Test(expected = IllegalArgumentException.class)
+	public void init_throwsExceptionIfHasUnknownValue() throws Exception {
+		new Card("Dh");
+	}
+
 	@Test
 	public void value() throws Exception {
 		assertThat(new Card("Kh").value(), is(equalTo('K')));

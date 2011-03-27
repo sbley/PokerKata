@@ -9,6 +9,9 @@ public class Card {
 
 	public Card(String card) {
 		this.card = card;
+		if (-1 == rank()) {
+			throw new IllegalArgumentException("Card has unkown value.");
+		}
 	}
 
 	public char value() {
