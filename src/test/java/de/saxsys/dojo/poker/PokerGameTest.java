@@ -46,4 +46,11 @@ public class PokerGameTest {
 		assertThat(new PokerGame(hand).getScore(),
 				is(equalTo("straight flush")));
 	}
+
+	@Test
+	public void getScore_fourOfAKind() throws Exception {
+		String[] hand = new String[] { "3d", "0s", "3s", "3h", "3c" };
+		assertThat(new PokerGame(hand).getScore(),
+				is(equalTo("four of a kind")));
+	}
 }

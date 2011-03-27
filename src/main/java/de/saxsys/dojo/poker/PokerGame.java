@@ -2,7 +2,9 @@ package de.saxsys.dojo.poker;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PokerGame {
 
@@ -22,6 +24,9 @@ public class PokerGame {
 		if (flush && straight) {
 			return "straight flush";
 		}
+		if (isFourOfAKind()) {
+			return "four of a kind";
+		}
 		if (flush) {
 			return "flush";
 		}
@@ -29,6 +34,24 @@ public class PokerGame {
 			return "straight";
 		}
 		return "highest card";
+	}
+
+	private boolean isFourOfAKind() {
+		return valueCounts().containsValue(4);
+	}
+
+	private Map<Character, Integer> valueCounts() {
+		Map<Character, Integer> valueCounts = new HashMap<Character, Integer>();
+
+		for (Card card : cards) {
+			char value = card.value();
+			if (null == valueCounts.get(value)) {
+				valueCounts.put(value, 1);
+			} else {
+				valueCounts.put(value, valueCounts.get(value) + 1);
+			}
+		}
+		return valueCounts;
 	}
 
 	private boolean isStraight() {
