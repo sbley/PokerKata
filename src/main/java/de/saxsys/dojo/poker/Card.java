@@ -1,5 +1,6 @@
 package de.saxsys.dojo.poker;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Card {
@@ -11,6 +12,9 @@ public class Card {
 		this.card = card;
 		if (-1 == rank()) {
 			throw new IllegalArgumentException("Card has unkown value.");
+		}
+		if (!Arrays.asList('c', 'd', 's', 'h').contains(this.suit())) {
+			throw new IllegalArgumentException("Card has unkown suit.");
 		}
 	}
 

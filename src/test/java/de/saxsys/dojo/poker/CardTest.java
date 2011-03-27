@@ -14,6 +14,11 @@ public class CardTest {
 		new Card("Dh");
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void init_throwsExceptionIfHasUnknownSuit() throws Exception {
+		new Card("Qx");
+	}
+
 	@Test
 	public void value() throws Exception {
 		assertThat(new Card("Kh").value(), is(equalTo('K')));
