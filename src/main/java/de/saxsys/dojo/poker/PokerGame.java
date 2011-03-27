@@ -17,10 +17,15 @@ public class PokerGame {
 	}
 
 	public String getScore() {
-		if (isFlush()) {
+		boolean flush = isFlush();
+		boolean straight = isStraight();
+		if (flush && straight) {
+			return "straight flush";
+		}
+		if (flush) {
 			return "flush";
 		}
-		if (isStraight()) {
+		if (straight) {
 			return "straight";
 		}
 		return "highest card";

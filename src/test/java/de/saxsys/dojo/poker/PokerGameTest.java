@@ -39,4 +39,11 @@ public class PokerGameTest {
 		String[] hand = new String[] { "Ks", "0h", "9d", "Jh", "Qc" };
 		assertThat(new PokerGame(hand).getScore(), is(equalTo("straight")));
 	}
+
+	@Test
+	public void getScore_straightFlush() throws Exception {
+		String[] hand = new String[] { "Qs", "0s", "Ks", "Js", "As" };
+		assertThat(new PokerGame(hand).getScore(),
+				is(equalTo("straight flush")));
+	}
 }
