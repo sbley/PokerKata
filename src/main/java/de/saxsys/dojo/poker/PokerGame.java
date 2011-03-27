@@ -9,6 +9,7 @@ import java.util.Map;
 public class PokerGame {
 
 	List<Card> cards;
+	private Map<Character, Integer> valueCounts;
 
 	public PokerGame(String[] hand) {
 		if (null == hand || 5 != hand.length) {
@@ -24,6 +25,7 @@ public class PokerGame {
 		if (flush && straight) {
 			return "straight flush";
 		}
+		calcValueCounts();
 		if (isFourOfAKind()) {
 			return "four of a kind";
 		}
@@ -49,20 +51,20 @@ public class PokerGame {
 	}
 
 	private boolean isFullHouse() {
-		return valueCounts().containsValue(3) && valueCounts().containsValue(2);
+		return valueCounts.containsValue(3) && valueCounts.containsValue(2);
 	}
 
 	private boolean isFourOfAKind() {
-		return valueCounts().containsValue(4);
+		return valueCounts.containsValue(4);
 	}
 
 	private boolean isThreeOfAKind() {
-		return valueCounts().containsValue(3);
+		return valueCounts.containsValue(3);
 	}
 
 	private boolean isTwoPairs() {
 		int pairs = 0;
-		for (Integer value : valueCounts().values()) {
+		for (Integer value : valueCounts.values()) {
 			if (2 == value && ++pairs == 2) {
 				return true;
 			}
@@ -71,12 +73,11 @@ public class PokerGame {
 	}
 
 	private boolean isOnePair() {
-		return valueCounts().containsValue(2);
+		return valueCounts.containsValue(2);
 	}
 
-	private Map<Character, Integer> valueCounts() {
-		Map<Character, Integer> valueCounts = new HashMap<Character, Integer>();
-
+	private void calcValueCounts() {
+		valueCounts = new HashMap<Character, Integer>();
 		for (Card card : cards) {
 			char value = card.value();
 			if (null == valueCounts.get(value)) {
@@ -85,7 +86,6 @@ public class PokerGame {
 				valueCounts.put(value, valueCounts.get(value) + 1);
 			}
 		}
-		return valueCounts;
 	}
 
 	private boolean isStraight() {
