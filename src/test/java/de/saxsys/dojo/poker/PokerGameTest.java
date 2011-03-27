@@ -24,22 +24,19 @@ public class PokerGameTest {
 
 	@Test
 	public void getScore_highestCard() throws Exception {
-		PokerGame pokerGame = new PokerGame(new String[] { "2s", "5c", "3h",
-				"0h", "Kh" });
-		assertThat(pokerGame.getScore(), is(equalTo("highest card")));
+		String[] hand = new String[] { "2s", "5c", "3h", "0h", "Kh" };
+		assertThat(new PokerGame(hand).getScore(), is(equalTo("highest card")));
 	}
 
 	@Test
 	public void getScore_flush() throws Exception {
-		PokerGame pokerGame = new PokerGame(new String[] { "2h", "5h", "3h",
-				"0h", "Kh" });
-		assertThat(pokerGame.getScore(), is(equalTo("flush")));
+		String[] hand = new String[] { "2h", "5h", "3h", "0h", "Kh" };
+		assertThat(new PokerGame(hand).getScore(), is(equalTo("flush")));
 	}
 
 	@Test
 	public void getScore_straight() throws Exception {
-		PokerGame pokerGame = new PokerGame(new String[] { "Ks", "0h", "9d",
-				"Jh", "Qc" });
-		assertThat(pokerGame.getScore(), is(equalTo("straight")));
+		String[] hand = new String[] { "Ks", "0h", "9d", "Jh", "Qc" };
+		assertThat(new PokerGame(hand).getScore(), is(equalTo("straight")));
 	}
 }
