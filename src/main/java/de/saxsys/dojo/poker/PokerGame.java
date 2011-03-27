@@ -19,7 +19,14 @@ public class PokerGame {
 		if (isFlush()) {
 			return "flush";
 		}
+		if (isStraight()) {
+			return "straight";
+		}
 		return "highest card";
+	}
+
+	private boolean isStraight() {
+		return false;
 	}
 
 	private boolean isFlush() {
