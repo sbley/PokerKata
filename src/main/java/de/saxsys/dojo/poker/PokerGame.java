@@ -33,10 +33,17 @@ public class PokerGame {
 		if (straight) {
 			return "straight";
 		}
+		if (isFullHouse()) {
+			return "full house";
+		}
 		if (isThreeOfAKind()) {
 			return "three of a kind";
 		}
 		return "highest card";
+	}
+
+	private boolean isFullHouse() {
+		return valueCounts().containsValue(3) && valueCounts().containsValue(2);
 	}
 
 	private boolean isFourOfAKind() {

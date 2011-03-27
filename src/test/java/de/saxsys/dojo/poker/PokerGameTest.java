@@ -60,4 +60,10 @@ public class PokerGameTest {
 		assertThat(new PokerGame(hand).getScore(),
 				is(equalTo("three of a kind")));
 	}
+
+	@Test
+	public void getScore_fullHouse() throws Exception {
+		String[] hand = new String[] { "Ad", "Ah", "3s", "3h", "3c" };
+		assertThat(new PokerGame(hand).getScore(), is(equalTo("full house")));
+	}
 }
