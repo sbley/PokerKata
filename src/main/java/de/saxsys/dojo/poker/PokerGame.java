@@ -27,6 +27,7 @@ public class PokerGame {
 	}
 
 	private boolean isStraight() {
+		sortCards();
 		return false;
 	}
 
@@ -51,7 +52,6 @@ public class PokerGame {
 	}
 
 	private void sortCards() {
-
 		Collections.sort(cards, Card.byValue());
 	}
 }
