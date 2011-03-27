@@ -24,9 +24,8 @@ public class PokerGameTest {
 
 	@Test
 	public void getScore_highestCard() throws Exception {
-		assertThat(
-				new PokerGame(new String[] { "2h", "5h", "3h", "0h", "Kh" })
-						.getScore(),
-				is(equalTo("highest card")));
+		PokerGame pokerGame = new PokerGame(new String[] { "2s", "5c", "3h",
+				"0h", "Kh" });
+		assertThat(pokerGame.getScore(), is(equalTo("highest card")));
 	}
 }
