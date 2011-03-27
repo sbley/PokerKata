@@ -39,6 +39,9 @@ public class PokerGame {
 		if (isThreeOfAKind()) {
 			return "three of a kind";
 		}
+		if (isTwoPairs()) {
+			return "two pairs";
+		}
 		return "highest card";
 	}
 
@@ -52,6 +55,10 @@ public class PokerGame {
 
 	private boolean isThreeOfAKind() {
 		return valueCounts().containsValue(3);
+	}
+
+	private boolean isTwoPairs() {
+		return valueCounts().containsValue(2);
 	}
 
 	private Map<Character, Integer> valueCounts() {

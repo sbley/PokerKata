@@ -66,4 +66,10 @@ public class PokerGameTest {
 		String[] hand = new String[] { "Ad", "Ah", "3s", "3h", "3c" };
 		assertThat(new PokerGame(hand).getScore(), is(equalTo("full house")));
 	}
+
+	@Test
+	public void getScore_twoPairs() throws Exception {
+		String[] hand = new String[] { "Ad", "Ah", "3s", "3h", "Jd" };
+		assertThat(new PokerGame(hand).getScore(), is(equalTo("two pairs")));
+	}
 }
