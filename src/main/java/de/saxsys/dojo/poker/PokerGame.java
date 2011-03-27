@@ -1,6 +1,7 @@
 package de.saxsys.dojo.poker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PokerGame {
@@ -47,5 +48,10 @@ public class PokerGame {
 		for (String card : hand) {
 			cards.add(new Card(card));
 		}
+	}
+
+	private void sortCards() {
+
+		Collections.sort(cards, Card.byValue());
 	}
 }

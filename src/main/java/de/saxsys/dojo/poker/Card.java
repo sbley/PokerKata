@@ -1,5 +1,7 @@
 package de.saxsys.dojo.poker;
 
+import java.util.Comparator;
+
 public class Card {
 	private static final char[] ranks = new char[] { '2', '3', '4', '5', '6',
 			'7', '8', '9', '0', 'J', 'Q', 'K', 'A' };
@@ -15,6 +17,16 @@ public class Card {
 
 	public char suit() {
 		return card.charAt(1);
+	}
+
+	public static Comparator<Card> byValue() {
+		return new Comparator<Card>() {
+
+			@Override
+			public int compare(Card card1, Card card2) {
+				return card1.rank() - card2.rank();
+			}
+		};
 	}
 
 	private int rank() {
