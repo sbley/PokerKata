@@ -2,8 +2,8 @@ package de.saxsys.dojo.poker;
 
 public class Card {
 	private static final char[] ranks = new char[] { '2', '3', '4', '5', '6',
-			'7', '8', '9', '0', 'B', 'D', 'K', 'A' };
-	private String card;
+			'7', '8', '9', '0', 'J', 'Q', 'K', 'A' };
+	private final String card;
 
 	public Card(String card) {
 		this.card = card;

@@ -10,12 +10,12 @@ public class CardTest {
 	@Test
 	public void value() throws Exception {
 		assertThat(new Card("Kh").value(), is(equalTo('K')));
-		assertThat(new Card("0b").value(), is(equalTo('0')));
+		assertThat(new Card("0c").value(), is(equalTo('0')));
 	}
 
 	@Test
 	public void suit() throws Exception {
 		assertThat(new Card("Kh").suit(), is(equalTo('h')));
-		assertThat(new Card("0b").suit(), is(equalTo('b')));
+		assertThat(new Card("0s").suit(), is(equalTo('s')));
 	}
 }
